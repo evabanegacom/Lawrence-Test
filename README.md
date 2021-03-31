@@ -95,15 +95,17 @@ Response:
 ]
 ```
 
-_Send Money transactions: endpoint for creating incoming transactions by the loggedIn user. Therefore, it requires authorization._
+_Add Money transactions: endpoint for creating incoming transactions by the loggedIn user. Therefore, it requires authorization._
 
 Endpoint: `https://lawrence-test.herokuapp.com/api/v1/send_money`
 
 Request (from POSTMAN):
 
+```Previous balance was 80.0 adding 50 made it 130.0```
+
 ```js
 token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
-curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/send_money' \
+curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/add_money' \
 --header 'Authorization: Bearer <token>' \
 ```
 
@@ -121,6 +123,41 @@ Response:
         "id": 34,
         "incoming_transactions": "50.0",
         "outgoing_transactions": "0.0",
+        "user_id": 1,
+        "created_at": "2021-03-31T21:48:13.752Z",
+        "updated_at": "2021-03-31T21:48:13.752Z"
+    }
+}
+```
+
+_Send Money transactions: endpoint for creating outgoing transactions by the loggedIn user. Therefore, it requires authorization._
+
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/send_money`
+
+Request (from POSTMAN):
+
+```js
+token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
+curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/send_money' \
+--header 'Authorization: Bearer <token>' \
+```
+
+Response:
+
+```Previous balance was 130.0 removing 50 made it 80.0```
+
+```json
+"balance": true,
+    "user": {
+        "id": 1,
+        "name": "precious",
+        "email": "precious@yahoo.com",
+        "global_balance": "80.0"
+    },
+    "transact": {
+        "id": 35,
+        "incoming_transactions": "0.0",
+        "outgoing_transactions": "50.0",
         "user_id": 1,
         "created_at": "2021-03-31T21:48:13.752Z",
         "updated_at": "2021-03-31T21:48:13.752Z"
