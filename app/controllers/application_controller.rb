@@ -25,7 +25,9 @@ class ApplicationController < ActionController::API
   def logged_in_user
     if decoded_token # rubocop:disable Style/GuardClause
       user_id = decoded_token[0]['user_id']
-      @user = User.select(:id, :name, :email, :global_balance).find_by(id: user_id)
+      @user = User.find_by(id: user_id)
+      # One way of finding the loggedin user by using their credentials
+      # @user = User.select(:id, :name, :email, :global_balance).find_by(id: user_id)
     end
   end
 
