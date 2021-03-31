@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  password_digest: MyString
+  global_balance: 9.99
+  incoming_transaction: 9.99
+  outgoing_transactions: 9.99
+
+two:
+  name: MyString
+  email: MyString
+  password_digest: MyString
+  global_balance: 9.99
+  incoming_transaction: 9.99
+  outgoing_transactions: 9.99
