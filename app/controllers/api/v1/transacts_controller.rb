@@ -5,15 +5,16 @@ class Api::V1::TransactsController < ApplicationController
   end
 
   def add_money
-    @user_balance = logged_in_user.global_balance
+    @user = logged_in_user
     @transact = logged_in_user.transactions.create(transact_params)
-    @user_balance = @user_balance + @transact.incoming_transactions - @transact.outgoing_transactions
-    render json: { balance: @user_balance, user: logged_in_user, transact: @transact }, status: 200
+    @balance = @user.update_attribute(:global_balance, (logged_in_user.global_balance + @transact.incoming_transactions - @transact.outgoing_transactions))
+    render json: { balance: @balance, user: logged_in_user, transact: @transact }, status: 200
   end
 
   def send_money
+    @user = logged_in_user
     @transact = logged_in_user.transactions.create(transact_params)
-    @balance = logged_in_user.global_balance - @transact.outgoing_transactions + @transact.incoming_transactions
+    @balance = @user.update_attribute(:global_balance, (logged_in_user.global_balance - @transact.outgoing_transactions + @transact.incoming_transactions))
     render json: { balance: @balance, user: logged_in_user, transact: @transact }, status: 200
   end
 

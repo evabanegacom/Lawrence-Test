@@ -110,21 +110,20 @@ curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/send_
 Response:
 
 ```json
-{
-    "balance": "70.0",
+"balance": true,
     "user": {
         "id": 1,
         "name": "precious",
         "email": "precious@yahoo.com",
-        "global_balance": "50.0"
+        "global_balance": "130.0"
     },
     "transact": {
-        "id": 10,
-        "incoming_transactions": "20.0",
+        "id": 34,
+        "incoming_transactions": "50.0",
         "outgoing_transactions": "0.0",
         "user_id": 1,
-        "created_at": "2021-03-31T20:09:34.684Z",
-        "updated_at": "2021-03-31T20:09:34.684Z"
+        "created_at": "2021-03-31T21:48:13.752Z",
+        "updated_at": "2021-03-31T21:48:13.752Z"
     }
 }
 ```
