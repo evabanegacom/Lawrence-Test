@@ -70,13 +70,13 @@ _After cloning, the following steps setup the project_
 
 _Fetch transactions: endpoint fetches all the transactions already carried-out by the logged in user. Therefore, it requires authorization._
 
-Endpoint: `https://lawrence-test.herokuapp.com/all_transactions`
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/all_transactions`
 
 Request (from POSTMAN):
 
 ```js
 token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
-curl --location --request GET 'https://lawrence-test.herokuapp.com/all_transactions' \
+curl --location --request GET 'https://lawrence-test.herokuapp.com/api/v1/all_transactions' \
 --header 'Authorization: Bearer <token>' \
 ```
 
@@ -97,13 +97,13 @@ Response:
 
 _Send Money transactions: endpoint for creating incoming transactions by the loggedIn user. Therefore, it requires authorization._
 
-Endpoint: `https://lawrence-test.herokuapp.com/send_money`
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/send_money`
 
 Request (from POSTMAN):
 
 ```js
 token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
-curl --location --request POST 'https://lawrence-test.herokuapp.com/send_money' \
+curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/send_money' \
 --header 'Authorization: Bearer <token>' \
 ```
 
@@ -132,12 +132,12 @@ Response:
 
 _Login: endpoint fetches creates a new token and ensure that the user can access all features._
 
-Endpoint: `https://lawrence-test.herokuapp.com/login`
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/login`
 
 Request (From POSTMAN):
 
 ```js
-curl --location --request POST 'https://lawrence-test.herokuapp.com/login' \
+curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/login' \
 --form 'email="johndoe@yahoo.com"' \
 --form 'password="password"'
 ```
@@ -150,6 +150,36 @@ Response:
     "id": 1,
     "name": "John Doe",
     "email": "john@doe.com"
+  },
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE",
+  "logged_In": true
+}
+```
+
+_User registration: endpoint creates a new user and token to ensure that the user can access all features._
+
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/login`
+
+Request (From POSTMAN):
+
+```js
+curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/users' \
+--form 'email="johndoe@yahoo.com"' \
+--form 'password="password"'
+--form 'password_confirmation="password"'
+--form 'name="johndoe"'
+--form 'global_balance="50.0"'
+```
+
+Response:
+
+```json
+{
+  "user": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@doe.com",
+    "global_balance": "50.0"
   },
   "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE",
   "logged_In": true
