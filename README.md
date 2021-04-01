@@ -107,6 +107,10 @@ Request (from POSTMAN):
 token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
 curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/add_money' \
 --header 'Authorization: Bearer <token>' \
+
+--form 'incoming_transactions="20"' \
+--form 'outgoing_transactions="20"'
+"any of the incoming or outgoing transactions could be blank if necessary, they are by default 0.0"
 ```
 
 Response:
@@ -140,6 +144,10 @@ Request (from POSTMAN):
 token = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.JC6qKuH9SG0SIiYSfhZUFTtirxN9Q47buLk0DPFFFzE'
 curl --location --request POST 'https://lawrence-test.herokuapp.com/api/v1/send_money' \
 --header 'Authorization: Bearer <token>' \
+
+--form 'incoming_transactions="20"' \
+--form 'outgoing_transactions="20"'
+"any of the incoming or outgoing transactions could be blank if necessary, they are by default 0.0"
 ```
 
 Response:
