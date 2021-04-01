@@ -97,7 +97,7 @@ Response:
 
 _Add Money transactions: endpoint for creating incoming transactions by the loggedIn user. Therefore, it requires authorization._
 
-Endpoint: `https://lawrence-test.herokuapp.com/api/v1/send_money`
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/add_money`
 
 Request (from POSTMAN):
 
