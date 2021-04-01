@@ -202,7 +202,7 @@ Response:
 
 _User registration: endpoint creates a new user and token to ensure that the user can access all features._
 
-Endpoint: `https://lawrence-test.herokuapp.com/api/v1/login`
+Endpoint: `https://lawrence-test.herokuapp.com/api/v1/users`
 
 Request (From POSTMAN):
 
