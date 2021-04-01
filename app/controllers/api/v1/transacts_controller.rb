@@ -1,4 +1,5 @@
 class Api::V1::TransactsController < ApplicationController
+  before_action :authorized
   def index
     @transacts = logged_in_user.transactions.all
     render json: @transacts
